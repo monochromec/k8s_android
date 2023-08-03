@@ -55,8 +55,8 @@ with the following specs:
 
 17. Using build.sh build the webserver container image and push to the local image registry
 18. Setup host/android port connections (adb_fwd.sh)
-19. `kubectl proxy --address=0.0.0.0` _for control plane access from adb_
-20. Setup your host's .kube/config to have an "android" section (or similar) pointing to the newly created cluster using the config created on the device earlier.
+19. `kubectl proxy --address=0.0.0.0` _for control plane access from the host via adb_
+20. Setup your host's .kube/config to have an "android" section (or similar) pointing to the newly created cluster using the config created on the device earlier; using `server: http://127.0.0.1:8080` in the cluster definition to reflect the adb / proxy configuration
 21. Deploy depl.yml and svc.yml to create deplyoment and service on device using the host's local kubectl command
 22. Pre-flight check: `kubectl get all` should show the deployment with two pods and the service created and running
 23. `kubectl port-forward --address=0.0.0.0 svc/miniserv-service 8081:8081` _for access to the service via adb_
