@@ -1,9 +1,16 @@
-This file contains the recipe for setting up the project environment.
+This file contains the recipe for setting up the project environment. You will need an Android device
+with the following specs:
+
+- Rooted device with recent AOSP installation (Android versions 11 and above)
+- Quad/octa-core AARCH64 architecture (the more cores the better)
+- >= 4 GB main memory
+- >= 4 GB of available flash memory
+- Linux/BSD host
 
 1. Install Android SDK (for adb)
 1. Install Termux (from F-Droid!)
 1. Install & configure ssh in Termux
-1. Get scrcpy (need adb for this)
+1. Get scrcpy (you need adb for this)
 1. qemu installation: qemu-utils qemu-common qemu-system-aarch64-headless & wget
 1. Download alpine iso: https://dl-cdn.alpinelinux.org/alpine/latest-stable/releases/aarch64 (go for *virt.iso => slimmed down kernel optimised for para-virtualisation only if your kernel supports this, otherwise choose *standard.iso) => storage/downloads
 1. Get UEFI boot loader from https://releases.linaro.org/components/kernel/uefi-linaro/latest/release/qemu64/QEMU_EFI.fd
@@ -37,6 +44,6 @@ This file contains the recipe for setting up the project environment.
 14. Check if containers are running: `ctr -n k8s.io containers list`
 15. Copy token to kubectl config: `cp /etc/rancher/k3s/k3s.yaml ~/.kube/config``
 16. Check if control plane is OK: `kubectl get all -n kube-system`
-17. Add gateway for host access in `/etc/hosts`
+17. Add gateway for host access in `/etc/hosts`:
     
-	  10.0.2.2	host
+	  `10.0.2.2	host`
